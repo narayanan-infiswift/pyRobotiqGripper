@@ -130,6 +130,7 @@ class RobotiqGripper( mm.Instrument ):
         """Return the name of the port on which is connected the gripper
         """
         ports=serial.tools.list_ports.comports()
+        print(f"Ports : {ports}")
         portName=None
 
         for port in ports:
@@ -656,20 +657,24 @@ class RobotiqGripper( mm.Instrument ):
             is_calibrated=True
         
         return is_calibrated
-            
+
+"""
+Unit test
 #Test
-if False:
+if True:
+    # Initialization
     grip=RobotiqGripper()
     grip.resetActivate()
-    #grip.reset()
-    #grip.goTo(0)
-    #grip.goTo(255)
-    #grip.printInfo()
-    #grip.goTo(255)
-    #time.sleep(5)
-    #grip.printInfo()
-    #grip.activate()
-    #grip.printInfo()
+    grip.reset()
+    # Movements
+    grip.goTo(0)
+    grip.goTo(255)
+    grip.printInfo()
+    grip.goTo(255)
+    time.sleep(5)
+    grip.printInfo()
+    grip.activate()
+    grip.printInfo()
     
     #grip.goTo(20)
     #grip.goTo(230)
@@ -679,3 +684,4 @@ if False:
     #grip.calibrate(0,36)
     #grip.goTomm(10,255,255)
     #grip.goTomm(40,1,255)
+"""          
